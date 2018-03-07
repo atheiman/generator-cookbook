@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  log_level: info
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-6.7
+  - name: centos-7.2
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[my_cookbook::default]
+      # - recipe[fixture_cookbook::default]
+    # attributes:
+    #   my_cookbook:
+    #     some_attribute: some value
