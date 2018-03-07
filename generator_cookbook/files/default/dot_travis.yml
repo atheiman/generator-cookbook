@@ -17,10 +17,8 @@ before_install:
 env:
 - SUITE=lint
 - SUITE=chefspec
-- SUITE=centos-6
-- SUITE=centos-7
-- SUITE=ubuntu-14
-- SUITE=ubuntu-16
+- SUITE=centos
+- SUITE=ubuntu
 
 script:
 - bundle exec ./.travis.sh
