@@ -14,5 +14,6 @@ pwd
 BUNDLE_GEMFILE="$(pwd)/Gemfile"
 bundle
 bundle exec rspec
-KITCHEN_LOCAL_YAML='.kitchen.docker.yml'
-bundle exec kitchen test --concurrency=2 --log-level=debug
+KITCHEN_LOCAL_YAML='.kitchen.docker.yml' bundle exec kitchen test \
+  --concurrency=2 \
+  --log-level=debug

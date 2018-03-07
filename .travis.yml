@@ -2,6 +2,13 @@ language: ruby
 
 cache: bundler
 
+sudo: required
+
+dist: trusty
+
+services:
+- docker
+
 before_install:
 # update core ruby dependencies
 - gem update --system
