@@ -10,6 +10,7 @@ bundle exec chef generate cookbook generated_cookbook \
 
 git diff --no-index desired_cookbook generated_cookbook
 cd generated_cookbook
+pwd
 bundle
 bundle exec rspec
 KITCHEN_LOCAL_YAML='.kitchen.docker.yml'
