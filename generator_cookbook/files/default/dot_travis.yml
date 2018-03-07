@@ -6,13 +6,13 @@ sudo: required
 
 dist: trusty
 
+services:
+- docker
+
 before_install:
 # update core ruby dependencies
 - gem update --system
 - gem update bundler
-
-rvm:
-- 2.4.2
 
 env:
 - SUITE=lint
@@ -21,9 +21,6 @@ env:
 - SUITE=centos-7
 - SUITE=ubuntu-14
 - SUITE=ubuntu-16
-
-services:
-- docker
 
 script:
 - bundle exec ./.travis.sh
