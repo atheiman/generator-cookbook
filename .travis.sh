@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-bundle exec chef generate cookbook cookbook_name \
+bundle exec chef generate cookbook generated_cookbook \
   --berks \
   --copyright 'Copyright Holder' \
   --email 'email@domain.com' \
@@ -8,6 +8,12 @@ bundle exec chef generate cookbook cookbook_name \
   --verbose \
   --generator-cookbook .
 
+git diff --no-index generated_cookbook my_cookbook || true
+cd generated_cookbook
+bundle
+bundle exec rspec
+KITCHEN_LOCAL_YAML='.kitchen.docker.yml'
+bundle exec kitchen test --concurrency=2 --log-level=debug
 
 # Usage: chef generate cookbook NAME [options]
 #     -b, --berks                      Generate cookbooks with berkshelf integration
