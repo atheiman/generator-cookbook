@@ -53,12 +53,16 @@ end
 
 # Test Kitchen
 template "#{cookbook_dir}/.kitchen.yml" do
-  source 'kitchen.yml.erb'
+  source 'dot_kitchen.yml.erb'
   helpers(ChefDK::Generator::TemplateHelper)
   action :create_if_missing
 end
 
-# Test Kitchen fixture cookbook
+cookbook_file "#{cookbook_dir}/.kitchen.docker.yml" do
+  source 'dot_kitchen.docker.yml'
+  action :create_if_missing
+end
+
 directory "#{cookbook_dir}/test/fixtures/cookbooks/fixture_cookbook/recipes" do
   recursive true
 end
@@ -99,6 +103,11 @@ template "#{cookbook_dir}/spec/recipes/default_spec.rb" do
   action :create_if_missing
 end
 
+cookbook_file "#{cookbook_dir}/.rspec" do
+  source 'dot_rspec'
+  action :create_if_missing
+end
+
 # Recipes
 directory "#{cookbook_dir}/recipes"
 
@@ -119,6 +128,18 @@ end
 # Gemfile
 cookbook_file "#{cookbook_dir}/Gemfile" do
   source 'Gemfile'
+  action :create_if_missing
+end
+
+# Travis CI
+cookbook_file "#{cookbook_dir}/.travis.yml" do
+  source 'dot_travis.yml'
+  action :create_if_missing
+end
+
+cookbook_file "#{cookbook_dir}/.travis.sh" do
+  source 'dot_travis.sh'
+  mode '744'
   action :create_if_missing
 end
 
