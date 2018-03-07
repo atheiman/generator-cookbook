@@ -1,5 +1,7 @@
 # Chef Cookbook Generator
 
+[![Build Status](https://travis-ci.org/atheiman/chef-cookbook-generator.svg?branch=master)](https://travis-ci.org/atheiman/chef-cookbook-generator)
+
 Template for creating new cookbooks with `chef generate cookbook --generator-cookbook`
 
 ```shell
@@ -15,7 +17,7 @@ chef generate cookbook cookbook_name \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook chef-cookbook-generator-master
+  --generator-cookbook chef-cookbook-generator-master/generator_cookbook
 ```
 
 ## Notes
