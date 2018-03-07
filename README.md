@@ -17,3 +17,8 @@ chef generate cookbook cookbook_name \
   --verbose \
   --generator-cookbook chef-cookbook-generator-master
 ```
+
+
+### To Do
+
+- [override / monkey patch post create message](https://github.com/chef/chef-dk/blob/master/lib/chef-dk/command/generator_commands/cookbook.rb#L100)

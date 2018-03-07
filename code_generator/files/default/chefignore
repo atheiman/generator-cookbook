@@ -82,6 +82,11 @@ Berksfile.lock
 cookbooks/*
 tmp
 
+# Bundler #
+#############
+Gemfile
+Gemfile.lock
+
 # Policyfile #
 ##############
 Policyfile.rb

@@ -2,7 +2,7 @@ name 'my_cookbook'
 maintainer 'Copyright Holder'
 maintainer_email 'email@domain.com'
 license 'Apache-2.0'
-description 'Installs/Configures my_cookbook'
+description 'Installs / configures my_cookbook'
 long_description ::File.read(::File.join(::File.dirname(__FILE__), 'README.md'))
 version '0.1.0'
 chef_version '>= 12'
