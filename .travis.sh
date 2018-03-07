@@ -8,7 +8,7 @@ bundle exec chef generate cookbook generated_cookbook \
   --verbose \
   --generator-cookbook .
 
-git diff --no-index generated_cookbook my_cookbook
+git diff --no-index generated_cookbook generated_cookbook
 cd generated_cookbook
 bundle
 bundle exec rspec

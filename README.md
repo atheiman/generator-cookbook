@@ -18,7 +18,10 @@ chef generate cookbook cookbook_name \
   --generator-cookbook chef-cookbook-generator-master
 ```
 
+## Notes
 
-### To Do
+- This generator uses Berkshelf rather than Policyfile
+
+## To Do
 
 - [override / monkey patch post create message](https://github.com/chef/chef-dk/blob/master/lib/chef-dk/command/generator_commands/cookbook.rb#L100)

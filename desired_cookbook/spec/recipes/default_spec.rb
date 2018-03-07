@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe 'my_cookbook::default' do
+describe 'generated_cookbook::default' do
   # let(:something) { 'something' }
 
   context 'some context' do
     cached(:chef_run) do
       # ChefSpec::ServerRunner.new do |node, server|
-      #   node.set['my_cookbook']['some_attribute'] = 'some value'
+      #   node.set['generated_cookbook']['some_attribute'] = 'some value'
       #   server.create_data_bag(
       #     'my_data_bag',
       #     'item_1' => { 'password' => 'abc123' }

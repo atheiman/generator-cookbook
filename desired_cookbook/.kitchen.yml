@@ -18,8 +18,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[my_cookbook::default]
+      - recipe[generated_cookbook::default]
       # - recipe[fixture_cookbook::default]
     # attributes:
-    #   my_cookbook:
+    #   generated_cookbook:
     #     some_attribute: some value
