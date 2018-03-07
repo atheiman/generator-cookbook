@@ -58,6 +58,21 @@ template "#{cookbook_dir}/.kitchen.yml" do
   action :create_if_missing
 end
 
+# Test Kitchen fixture cookbook
+directory "#{cookbook_dir}/test/fixtures/cookbooks/fixture_cookbook/recipes" do
+  recursive true
+end
+
+cookbook_file "#{cookbook_dir}/test/fixtures/cookbooks/fixture_cookbook/metadata.rb" do
+  source 'fixture_cookbook_metadata.rb'
+  action :create_if_missing
+end
+
+cookbook_file "#{cookbook_dir}/test/fixtures/cookbooks/fixture_cookbook/recipes/default.rb" do
+  source 'fixture_cookbook_recipe.rb'
+  action :create_if_missing
+end
+
 # Inspec
 directory "#{cookbook_dir}/test/integration/default" do
   recursive true
@@ -89,6 +104,21 @@ directory "#{cookbook_dir}/recipes"
 
 cookbook_file "#{cookbook_dir}/recipes/default.rb" do
   source 'recipe.rb'
+  action :create_if_missing
+end
+
+# Attributes
+directory "#{cookbook_dir}/attributes"
+
+template "#{cookbook_dir}/attributes/default.rb" do
+  source 'attributes.rb.erb'
+  helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
+end
+
+# Gemfile
+cookbook_file "#{cookbook_dir}/Gemfile" do
+  source 'Gemfile'
   action :create_if_missing
 end
 
