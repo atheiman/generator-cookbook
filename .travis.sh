@@ -10,7 +10,6 @@ bundle exec chef generate cookbook generated_cookbook \
 
 git diff --no-index desired_cookbook generated_cookbook
 cd generated_cookbook
-pwd
 BUNDLE_GEMFILE="$(pwd)/Gemfile"
 bundle
 bundle exec rspec
