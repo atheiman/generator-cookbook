@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/atheiman/chef-generator-cookbook.svg?branch=master)](https://travis-ci.org/atheiman/chef-generator-cookbook)
 
-Template for creating new cookbooks with `chef generate cookbook COOKBOOK_NAME --generator-cookbook`:
+Cookbook for creating new cookbooks using [`chef generate cookbook COOKBOOK_NAME --generator-cookbook`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook):
 
 ```shell
 # install `chef` utility from chef-dk if you dont already have it
@@ -65,3 +65,9 @@ git diff --no-index desired_cookbook generated_cookbook
 ## To Do
 
 - [override / monkey patch post create message](https://github.com/chef/chef-dk/blob/master/lib/chef-dk/command/generator_commands/cookbook.rb#L100)
+- distribute as a gem and `chef generate cookbook` can find the generator cookbook in the gem's `lib/` dir. then use is as simple as:
+```
+gem install cookbook-generator-gem
+chef generate cookbook generated_cookbook \
+  --generator-cookbook lib/cookbook-generator-gem/generator-cookbook
+```
