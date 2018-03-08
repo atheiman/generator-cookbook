@@ -1,6 +1,6 @@
-# Chef Cookbook Generator
+# Chef Generator Cookbook
 
-[![Build Status](https://travis-ci.org/atheiman/chef-cookbook-generator.svg?branch=master)](https://travis-ci.org/atheiman/chef-cookbook-generator)
+[![Build Status](https://travis-ci.org/atheiman/chef-generator-cookbook.svg?branch=master)](https://travis-ci.org/atheiman/chef-generator-cookbook)
 
 Template for creating new cookbooks with `chef generate cookbook COOKBOOK_NAME --generator-cookbook`:
 
@@ -11,17 +11,16 @@ gem install --no-document chef-dk
 # download the generator repo
 curl --location \
      --silent \
-     'https://github.com/atheiman/chef-cookbook-generator/archive/master.tar.gz' \
+     'https://github.com/atheiman/chef-generator-cookbook/archive/master.tar.gz' \
      | tar xz
 
 # generate your new cookbook using the generator repo as a template
 chef generate cookbook COOKBOOK_NAME \
-  --berks \
   --copyright 'Copyright Holder' \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook chef-cookbook-generator-master/generator_cookbook
+  --generator-cookbook chef-generator-cookbook-master/generator_cookbook
 ```
 
 Checkout [`desired_cookbook/`](./desired_cookbook/) to see how a generated cookbook will look.
@@ -35,10 +34,11 @@ Checkout [`desired_cookbook/`](./desired_cookbook/) to see how a generated cookb
 ## Notes
 
 - This generator uses Berkshelf rather than Policyfile
+- There is no Chef Delivery support
 
 ## Testing / Development
 
-Generating with this cookbook is tested in [Travis](https://travis-ci.org/atheiman/chef-cookbook-generator/) - a cookbook is generated and then compared to [`desired_cookbook`](./desired_cookbook/).
+Generating with this cookbook is tested in [Travis](https://travis-ci.org/atheiman/chef-generator-cookbook/) - a cookbook is generated and then compared to [`desired_cookbook`](./desired_cookbook/).
 
 When developing the generator cookbook, its handy to run the generator and see if your changes work as you intended:
 
