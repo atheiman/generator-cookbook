@@ -19,7 +19,6 @@ chef generate cookbook COOKBOOK_NAME \
   --copyright 'Copyright Holder' \
   --email 'email@domain.com' \
   --license 'apachev2' \
-  --verbose \
   --generator-cookbook chef-generator-cookbook-master/generator_cookbook
 ```
 
@@ -64,7 +63,6 @@ git diff --no-index desired_cookbook generated_cookbook
 
 ## To Do
 
-- [override / monkey patch post create message](https://github.com/chef/chef-dk/blob/master/lib/chef-dk/command/generator_commands/cookbook.rb#L100)
 - distribute as a gem and `chef generate cookbook` can find the generator cookbook in the gem's `lib/` dir. then use is as simple as:
 ```
 gem install cookbook-generator-gem
