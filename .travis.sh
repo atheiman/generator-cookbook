@@ -8,7 +8,7 @@ bundle exec chef generate cookbook generated_cookbook \
   --verbose \
   --generator-cookbook ./generator_cookbook
 
-git diff --no-index desired_cookbook generated_cookbook
+git diff --no-index test/desired_cookbook generated_cookbook
 cd generated_cookbook
 BUNDLE_GEMFILE="$(pwd)/Gemfile"
 bundle
