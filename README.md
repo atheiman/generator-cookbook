@@ -2,21 +2,43 @@
 
 [![Build Status](https://travis-ci.org/atheiman/chef-generator-cookbook.svg?branch=master)](https://travis-ci.org/atheiman/chef-generator-cookbook)
 
-Cookbook for creating new cookbooks using [`chef generate cookbook COOKBOOK_NAME --generator-cookbook`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook):
+Generator cookbook for creating new cookbooks using [`chef generate cookbook COOKBOOK_NAME --generator-cookbook`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook). Checkout [`test/desired_cookbook/`](./test/desired_cookbook/) to see how a generated cookbook will look.
+
+## Usage
+
+1. Download the cookbook (distributed in [a RubyGem](https://rubygems.org/gems/generator-cookbook) and available from [Chef Supermarket](https://supermarket.chef.io/cookbooks/generator-cookbook))
+1. Generate a cookbook using [`chef generate cookbook ...` from `chef-dk`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook), passing in the path to this generator-cookbook as an argument
+
+### RubyGems
 
 ```shell
-# install `chef` utility from chef-dk if you dont already have it
-gem install generator-cookbook
+# install generator-cookbook packaged as RubyGem (this will install `chef` utility from chef-dk too)
+gem install generator-cookbook --no-document
 
 # generate your new cookbook using the generator repo as a template
 chef generate cookbook COOKBOOK_NAME \
   --copyright 'Copyright Holder' \
   --email 'email@domain.com' \
   --license 'apachev2' \
-  --generator-cookbook lib/generator-cookbook
+  --generator-cookbook $(basename $(gem which generator-cookbook) .rb)
 ```
 
-Checkout [`test/desired_cookbook/`](./test/desired_cookbook/) to see how a generated cookbook will look.
+### Supermarket
+
+```shell
+# install `chef` utility from chef-dk if you dont already have it
+gem install chef-dk --no-document
+
+# download the cookbook from the supermarket
+curl -L https://supermarket.chef.io/cookbooks/generator-cookbook/download | tar xz
+
+# generate your new cookbook using the generator repo as a template
+chef generate cookbook COOKBOOK_NAME \
+  --copyright 'Copyright Holder' \
+  --email 'email@domain.com' \
+  --license 'apachev2' \
+  --generator-cookbook generator-cookbook
+```
 
 ## Differences from default generator
 
@@ -43,7 +65,7 @@ rm -rf generated_cookbook && \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook ./generator_cookbook
+  --generator-cookbook lib/generator-cookbook
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
@@ -57,10 +79,6 @@ git diff --no-index test/desired_cookbook generated_cookbook
 
 ## To Do
 
-- distribute as a gem and `chef generate cookbook` can find the generator cookbook in the gem's `lib/` dir. then use is as simple as:
-```
-gem install generator-cookbook
-chef generate cookbook generated_cookbook \
-  --generator-cookbook lib/generator-cookbook
-```
+- push to rubygems with travis
+- push to supermarket with travis (stove most likely)
 - expand on generated cookbook readme

@@ -1,2 +1,2 @@
-name             'generator_cookbook'
+name             'generator-cookbook'
 version          '0.1.0'
