@@ -12,9 +12,6 @@ gems.locked
 bin/*
 .bundle/*
 
-# RubyGems
-*.gem
-
 # test kitchen
 *.kitchen/
 *.kitchen.local.yml

@@ -98,7 +98,7 @@ git diff --no-index test/desired_cookbook generated_cookbook
 
 ### Releasing
 
-Once the changes and metadata version increase have been merged into master branch and you have those changes pulled down to your workstation:
+Ensure your local `master` branch is up to date with changes and metadata version increase. Then use `stove` to create and push a git tag and the push cookbook to the supermarket.
 
 ```shell
 bundle exec stove --path generator-cookbook
