@@ -6,28 +6,12 @@ Generator cookbook for creating new cookbooks using [`chef generate cookbook COO
 
 ## Usage
 
-1. Download the cookbook (distributed in [a RubyGem](https://rubygems.org/gems/generator-cookbook) and available from [Chef Supermarket](https://supermarket.chef.io/cookbooks/generator-cookbook))
+1. Download the cookbook available from [Chef Supermarket](https://supermarket.chef.io/cookbooks/generator-cookbook))
 1. Generate a cookbook using [`chef generate cookbook ...` from `chef-dk`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook), passing in the path to this generator-cookbook as an argument
 
-### RubyGems
-
 ```shell
-# install generator-cookbook packaged as RubyGem (this will install `chef` utility from chef-dk too)
-gem install generator-cookbook --no-document
-
-# generate your new cookbook using the generator repo as a template
-chef generate cookbook COOKBOOK_NAME \
-  --copyright 'Copyright Holder' \
-  --email 'email@domain.com' \
-  --license 'apachev2' \
-  --generator-cookbook $(basename $(gem which generator-cookbook) .rb)
-```
-
-### Supermarket
-
-```shell
-# install `chef` utility from chef-dk if you dont already have it
-gem install chef-dk --no-document
+# install `chef` utility from chef-dk if you don't already have it
+which chef || gem install chef-dk --no-document
 
 # download the cookbook from the supermarket
 curl -L https://supermarket.chef.io/cookbooks/generator-cookbook/download | tar xz
@@ -51,7 +35,7 @@ chef generate cookbook COOKBOOK_NAME \
 - This generator uses Berkshelf rather than Policyfile
 - There is no Chef Delivery support
 
-## Testing / Development
+## Development
 
 Generating with this cookbook is tested in [Travis](https://travis-ci.org/atheiman/chef-generator-cookbook/) - a cookbook is generated and then compared to [`test/desired_cookbook`](./test/desired_cookbook/).
 
@@ -65,7 +49,7 @@ rm -rf generated_cookbook && \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook lib/generator-cookbook
+  --generator-cookbook generator-cookbook
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
@@ -75,6 +59,13 @@ git diff --no-index tmp/*.tree
 
 # diff the contents of test/desired_cookbook/ and generated_cookbook/
 git diff --no-index test/desired_cookbook generated_cookbook
+```
+
+### Releasing
+
+```shell
+# once the changes have been merged into master branch
+bundle exec stove
 ```
 
 ## To Do

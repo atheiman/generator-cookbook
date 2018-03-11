@@ -16,6 +16,3 @@ before_install:
 
 script:
 - ./.travis.sh
-
-# push gem to rubygems.org
-# push cookbook to supermarket

@@ -1,9 +1,5 @@
 #!/bin/bash -ex
 
-# install the gem
-gem build *.gemspec
-gem install *.gem
-
 cd test
 
 # generate a new cookbook from installed gem
@@ -12,7 +8,7 @@ bundle exec chef generate cookbook generated_cookbook \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook $(basename $(gem which generator-cookbook) .rb)
+  --generator-cookbook ../generator-cookbook
 
 # verify generated cookbook contents
 git diff --no-index desired_cookbook generated_cookbook
