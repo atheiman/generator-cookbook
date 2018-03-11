@@ -12,6 +12,9 @@ gems.locked
 bin/*
 .bundle/*
 
+# RubyGems
+*.gem
+
 # test kitchen
 *.kitchen/
 *.kitchen.local.yml
@@ -21,5 +24,6 @@ bin/*
 .zero-knife.rb
 Policyfile.lock.json
 
+# Testing / Development
 tmp/
 generated_cookbook/
