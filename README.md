@@ -10,11 +10,11 @@ Generator cookbook for creating new cookbooks using [`chef generate cookbook COO
 1. Generate a cookbook using [`chef generate cookbook ...` from `chef-dk`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook), passing in the path to this generator-cookbook as an argument
 
 ```shell
-# install `chef` utility from chef-dk if you don't already have it
-which chef || gem install chef-dk --no-document
-
 # download the cookbook from the supermarket
 curl -L https://supermarket.chef.io/cookbooks/generator-cookbook/download | tar xz
+
+# install `chef` utility from chef-dk if you don't already have it
+which chef || gem install chef-dk --no-document
 
 # generate your new cookbook using the generator repo as a template
 chef generate cookbook COOKBOOK_NAME \
