@@ -8,7 +8,7 @@ bundle exec chef generate cookbook generated_cookbook \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook ../generator-cookbook
+  --generator-cookbook ..
 
 # verify generated cookbook contents
 git diff --no-index desired_cookbook generated_cookbook

@@ -1,6 +1,6 @@
 # Chef Generator Cookbook
 
-[![Build Status](https://travis-ci.org/atheiman/chef-generator-cookbook.svg?branch=master)](https://travis-ci.org/atheiman/chef-generator-cookbook)
+[![Build Status](https://travis-ci.org/atheiman/generator-cookbook.svg?branch=master)](https://travis-ci.org/atheiman/generator-cookbook)
 
 Generator cookbook for creating new cookbooks using [`chef generate cookbook COOKBOOK_NAME --generator-cookbook`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook). Checkout [`test/desired_cookbook/`](./test/desired_cookbook/) to see how a generated cookbook will look.
 
@@ -72,7 +72,7 @@ this_generator/                default_chef-dk_generator/
 
 ## Development
 
-Generating with this cookbook is tested in [Travis](https://travis-ci.org/atheiman/chef-generator-cookbook/) - a cookbook is generated and then compared to [`test/desired_cookbook`](./test/desired_cookbook/).
+Generating with this cookbook is tested in [Travis](https://travis-ci.org/atheiman/generator-cookbook/) - a cookbook is generated and then compared to [`test/desired_cookbook`](./test/desired_cookbook/).
 
 When developing the generator cookbook, its handy to run the generator and see if your changes work as you intended:
 
@@ -84,7 +84,7 @@ bundle exec chef generate cookbook generated_cookbook \
   --email 'email@domain.com' \
   --license 'apachev2' \
   --verbose \
-  --generator-cookbook generator-cookbook
+  --generator-cookbook .
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
