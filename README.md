@@ -29,11 +29,46 @@ chef generate cookbook COOKBOOK_NAME \
 - Each generated file includes commented code to get you started
 - Test-kitchen and Chefspec Travis CI setup generated
 - Gemfile generated
-
-## Notes
-
-- This generator uses Berkshelf rather than Policyfile
+- This generator always uses Berkshelf rather than Policyfile
 - There is no Chef Delivery support
+
+Here is a comparison of the file trees created by this generator and the default chef-dk generator:
+
+```
+this_generator/                default_chef-dk_generator/
+  .gitignore                     .gitignore
+  .kitchen.docker.yml            .kitchen.yml
+  .kitchen.yml                   Berksfile
+  .rspec                         LICENSE
+  .travis.sh                     README.md
+  .travis.yml                    chefignore
+  Berksfile                      metadata.rb
+  Gemfile                        recipes/
+  LICENSE                          default.rb
+  README.md                      spec/
+  attributes/                      spec_helper.rb
+    default.rb                     unit/
+  chefignore                         recipes/
+  metadata.rb                          default_spec.rb
+  recipes/                       test/
+    default.rb                     integration/
+  spec/                              default/
+    recipes/                           default_test.rb
+      default_spec.rb
+    spec_helper.rb             7 directories, 11 files
+  test/
+    fixtures/
+      cookbooks/
+        fixture_cookbook/
+          metadata.rb
+          recipes/
+            default.rb
+    integration/
+      default/
+        default_spec.rb
+
+11 directories, 19 files
+```
 
 ## Development
 
@@ -53,8 +88,8 @@ rm -rf generated_cookbook && \
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
-tree -a test/desired_cookbook > tmp/test/desired_cookbook.tree
-tree -a generated_cookbook > tmp/generated_cookbook.tree
+tree -aF test/desired_cookbook > tmp/test/desired_cookbook.tree
+tree -aF generated_cookbook > tmp/generated_cookbook.tree
 git diff --no-index tmp/*.tree
 
 # diff the contents of test/desired_cookbook/ and generated_cookbook/
