@@ -88,7 +88,7 @@ bundle exec chef generate cookbook generated_cookbook \
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
-tree -aF test/desired_cookbook > tmp/test/desired_cookbook.tree
+tree -aF test/desired_cookbook > tmp/desired_cookbook.tree
 tree -aF generated_cookbook > tmp/generated_cookbook.tree
 git diff --no-index tmp/*.tree
 
