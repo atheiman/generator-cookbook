@@ -6,7 +6,7 @@ Generator cookbook for creating new cookbooks using [`chef generate cookbook COO
 
 ## Usage
 
-1. Download the cookbook available from [Chef Supermarket](https://supermarket.chef.io/cookbooks/generator-cookbook))
+1. Download the cookbook available from [Chef Supermarket](https://supermarket.chef.io/cookbooks/generator-cookbook)
 1. Generate a cookbook using [`chef generate cookbook ...` from `chef-dk`](https://docs.chef.io/ctl_chef.html#chef-generate-cookbook), passing in the path to this generator-cookbook as an argument
 
 ```shell
@@ -78,8 +78,8 @@ When developing the generator cookbook, its handy to run the generator and see i
 
 ```shell
 # clear generated_cookbook/ and generate into it
-rm -rf generated_cookbook && \
-  bundle exec chef generate cookbook generated_cookbook \
+rm -rf generated_cookbook
+bundle exec chef generate cookbook generated_cookbook \
   --copyright 'Copyright Holder' \
   --email 'email@domain.com' \
   --license 'apachev2' \
@@ -88,7 +88,7 @@ rm -rf generated_cookbook && \
 
 # compare the file trees of test/desired_cookbook/ and generated_cookbook/
 mkdir -p tmp
-tree -aF test/desired_cookbook > tmp/test/desired_cookbook.tree
+tree -aF test/desired_cookbook > tmp/desired_cookbook.tree
 tree -aF generated_cookbook > tmp/generated_cookbook.tree
 git diff --no-index tmp/*.tree
 
@@ -98,13 +98,8 @@ git diff --no-index test/desired_cookbook generated_cookbook
 
 ### Releasing
 
+Once the changes and metadata version increase have been merged into master branch and you have those changes pulled down to your workstation:
+
 ```shell
-# once the changes have been merged into master branch
-bundle exec stove
+bundle exec stove --path generator-cookbook
 ```
-
-## To Do
-
-- push to rubygems with travis
-- push to supermarket with travis (stove most likely)
-- expand on generated cookbook readme

@@ -1,2 +1,10 @@
 name             'generator-cookbook'
+maintainer       'Copyright Holder'
+maintainer_email 'atheimanksu@gmail.com'
+license          'mit'
+description      'Installs / configures generated_cookbook'
+long_description ::File.read(::File.join(::File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
+chef_version     '>= 12'
+issues_url 'https://github.com/atheiman/chef-generator-cookbook/issues'
+source_url 'https://github.com/atheiman/chef-generator-cookbook'
