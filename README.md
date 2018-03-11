@@ -26,7 +26,7 @@ chef generate cookbook COOKBOOK_NAME \
 
 ## Differences from default generator
 
-- Each generated file includes commented code to get you started
+- Each generated file includes a simple code example to get you started in that file
 - Test-kitchen and Chefspec Travis CI setup generated
 - Gemfile generated
 - This generator always uses Berkshelf rather than Policyfile
