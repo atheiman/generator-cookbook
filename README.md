@@ -101,5 +101,5 @@ git diff --no-index test/desired_cookbook generated_cookbook
 Ensure your local `master` branch is up to date with changes and metadata version increase. Then use `stove` to create and push a git tag and the push cookbook to the supermarket.
 
 ```shell
-bundle exec stove
+bundle exec stove --username atheiman --key ~/.chef/atheiman-chef.io.pem
 ```
